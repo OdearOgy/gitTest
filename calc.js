@@ -39,3 +39,7 @@ const mod = (a, b) => {
 const flipSign = (a) => {
   return -a;
 }; console.log(flipSign(2));
+
+const percent = (a,b) => {
+  return (a * b) /100;
+}; console.log(percent(300,20));

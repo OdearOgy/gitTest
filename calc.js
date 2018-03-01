@@ -13,19 +13,20 @@ const divisionInt = (a,b) => {
 
 const multiplicationInt = (a,b) => {
   return a * b;
-}; console.log(multiplicationInt(5,5));
+}; console.log(multiplicationInt(5,10));
 
 const power = (num, pow) => {
-  for (let i = 1; i < pow; i++) {
-    num *= num;
+  if (pow === 0) {
+    return 1;
   }
-  return num;
-}; console.log(power(5,2));
+  return num * power(num, pow - 1);
+}; console.log(power(5,3));
 
 
-// const root = (a,b) => {
+// const root = (number) => {
 //
-// };console.log(root())
+//
+// }; console.log(root());
 
 const absolute = (a) => {
  return a < 0 ? -a : a;

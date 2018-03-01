@@ -1,0 +1,21 @@
+
+
+body {
+  background-color: grey;
+}
+
+
+.button {
+  width: 600px;
+
+
+}
+.buttonS button{
+
+  display: inline-block;
+  width: 100px;
+  padding: 35px 40px;
+  margin: 0px;
+  border: none;
+  border-radius: 8px;
+}

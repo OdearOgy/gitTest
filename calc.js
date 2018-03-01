@@ -21,13 +21,12 @@ const power = (num, pow) => {
     result *= num;
   }
   return result
-}; console.log(power(5,3));
+}; console.log(power(5,0));
 
 
-// const root = (number) => {
-//
-//
-// }; console.log(root());
+const root = (num, pow) => {
+  return num ** (pow ** -1);
+}; console.log(root(36,2));
 
 const absolute = (a) => {
  return a < 0 ? -a : a;
@@ -45,3 +44,13 @@ const flipSign = (a) => {
 const percent = (a,b) => {
   return (a * b) /100;
 }; console.log(percent(300,20));
+
+
+const log = (base, a) => {
+  if (a < base) {
+    return 0;
+  }
+
+  return 1 + log(base, a/base);
+}
+console.log(log(2,9));

@@ -16,10 +16,11 @@ const multiplicationInt = (a,b) => {
 }; console.log(multiplicationInt(5,10));
 
 const power = (num, pow) => {
-  if (pow === 0) {
-    return 1;
+  let result = 1;
+  for (let i = 0; i < pow; i++) {
+    result *= num;
   }
-  return num * power(num, pow - 1);
+  return result
 }; console.log(power(5,3));
 
 

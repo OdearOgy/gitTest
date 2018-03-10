@@ -1,9 +1,18 @@
+const textField = document.getElementById("expression-field");
+const buttons = document.querySelectorAll(".button-group button");
+const equalsButton = document.getElementById("equals");
+const clearButton = document.getElementById("clear");
+const backSpace = document.getElementById("backspace");
+const powerFunc = document.getElementById("power");
+
+
 const calculateTerm = term => {
-  // let result = 0;
   let numbers = [];
   term.split("*").forEach(elm => {
     numbers = [ ...numbers, ...elm.split("/")]
   });
+
+
   let result = 1;
   numbers.forEach(currentNumber => {
     const splittedNumber = term.split(currentNumber)[0];
@@ -18,11 +27,14 @@ const calculateTerm = term => {
   return result;
 }
 
+
 const calculateResult = expression => {
   let terms = [];
 expression.split("+").forEach(elm => {
   terms = [ ...terms, ...elm.split("-")]
 });
+
+
 let result = 0;
 terms.forEach(currentTerm => {
   const splittedTerm = expression.split(currentTerm)[0];
@@ -36,16 +48,26 @@ terms.forEach(currentTerm => {
 })
 return result;
 }
-const button1 = document.getElementById("btn-1");
-const textField = document.getElementById("expression-field");
-const buttons = document.querySelectorAll('.button-group button:not(.long-button)');
-const equalsButton = document.getElementById("equals");
+
+
+backSpace.addEventListener("click", event => {
+  textField.value = textField.value.substring(0, textField.value.length - 1);
+})
+
+
+clearButton.addEventListener("click", event => {
+  textField.value = 0;
+})
+
+
 buttons.forEach(currentButton => {
   currentButton.addEventListener('click', event => {
+    if (!currentButton.id) {
     if (textField.value === '0') {
       textField.value = currentButton.innerText;
     } else {
       textField.value += currentButton.innerText;
+    }
     }
   })
 })
@@ -53,3 +75,5 @@ buttons.forEach(currentButton => {
 equalsButton.addEventListener("click", event => {
   textField.value = calculateResult(textField.value);
 })
+
+//add power function
